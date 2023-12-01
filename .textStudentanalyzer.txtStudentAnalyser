@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class StudentGradeAnalyzer {
+    public static void main(String[]args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of students:");
+        int numStudents = scanner.nextInt();
+        int[] grades = new int[numStudents];
+        for(int i = 0; i<numStudents; i++){
+            System.out.println("Enter the grade for Student" + (i+1) + ":");
+            grades[i] = scanner.nextInt();
+        }
+            int sum = 0;
+            int maxGrade = Integer.MIN_VALUE;
+            int minGrade = Integer.MIN_VALUE;
+            for(int grade : grades){
+                sum += grade;
+                if(grade>maxGrade){
+                    maxGrade = grade;
+
+                }
+                if(grade<minGrade){
+                    minGrade = grade;
+
+                }
+            }
+            double average = (double)sum/numStudents;
+            System.out.println("Average grade: " + average);
+            System.out.println("Highest grade: " + maxGrade);
+            System.out.println("Lowest grade: " + minGrade);
+    }     
+}
